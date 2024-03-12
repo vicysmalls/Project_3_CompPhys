@@ -1,7 +1,7 @@
 import random as rd
 
 
-class Matrix:
+class MatrixClass:
     def __init__(self, N):
         self.N = N
         self.matrix = []
@@ -10,9 +10,13 @@ class Matrix:
             for j in range(N):
                 row.append(rd.randint(0, 1))
             self.matrix.append(row)
+
+    def show(self):
+        for row in self.matrix:
+            print(row)
+
     # In order to know if the up,down,left,right is out of bounds,
     # row or col equals N,or -1
-
     def above(self, row, col):
         if row - 1 == -1:
             return 0
