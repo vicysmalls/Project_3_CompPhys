@@ -6,7 +6,7 @@ class MatrixClass:
     def __init__(self, N):
         self.N = N
         self.J = 1
-        self.k = 1
+        self.k = 1.38E-23
         self.T = 400
         self.matrix = []
         for i in range(N):
@@ -24,7 +24,6 @@ class MatrixClass:
         plt.figure(figsize=(self.N, self.N))  # Adjust the figure size as needed
         plt.imshow(self.matrix, cmap=cmap, interpolation='nearest')
         plt.axis('off')  # Remove axes for a cleaner look
-        #plt.show()
 
     # In order to know if the up,down,left,right is out of bounds,
     # row or col equals N,or -1
@@ -62,5 +61,5 @@ class MatrixClass:
 
     def checkStatus(self, row, col):
         delE = self.energyChange(row, col)
-        if delE >= 0 or np.random.rand() > np.exp(-delE/(self.k + self.T)):
+        if delE >= 0 or np.random.rand() > np.exp(-delE/(self.k * self.T)):
             self.matrix[row][col] = -self.matrix[row][col]
