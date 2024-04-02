@@ -3,11 +3,12 @@ import matplotlib.pyplot as plt
 import matplotlib.colors as mcolors
 import numpy as np
 class MatrixClass:
-    def __init__(self, N):
+    def __init__(self, N, amount):
+        self.amount = amount
         self.N = N
         self.J = 1
         self.k = 1.38E-23
-        self.T = 400
+        self.T = 200
         self.matrix = []
         for i in range(N):
             row = []
@@ -24,6 +25,8 @@ class MatrixClass:
         plt.figure(figsize=(self.N, self.N))  # Adjust the figure size as needed
         plt.imshow(self.matrix, cmap=cmap, interpolation='nearest')
         plt.axis('off')  # Remove axes for a cleaner look
+        plt.title(f"Graph {self.amount}: T = {self.T}")
+        self.amount += 1
 
     # In order to know if the up,down,left,right is out of bounds,
     # row or col equals N,or -1
