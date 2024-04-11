@@ -82,3 +82,9 @@ class MatrixClass:
         delE = self.energyChange(row, col)
         if delE < 0 or np.random.rand() < np.exp(-delE/(self.k * self.T)):
             self.matrix[row][col] = -self.matrix[row][col]
+
+     def is_equal(self, row, col, row1, col1):
+        if (self.matrix[row][col] == self.matrix[row1][col1]):
+            return True
+        else:
+            return False
